@@ -6,8 +6,8 @@ const Counter = () => {
 	const [count, setCount] = useState(0);
 
 	const counter = () => {
-		setCount(prevState => {
-			return prevState + 1
+		setCount(count => {
+			return count + 1
 		});
 	};
 
@@ -16,9 +16,11 @@ const Counter = () => {
 		const intervalId = setInterval(counter, 1000);
 		return () => {
 			// this function will be called when the component is unmounted
+			console.log('counter unmounted')
 			clearTimeout(intervalId);
 		}
 	}, [])
+
 
 
 	console.log('Counter comoponent finished');
